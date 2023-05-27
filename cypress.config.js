@@ -6,7 +6,7 @@ const { createEsbuildPlugin } = require("@badeball/cypress-cucumber-preprocessor
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter', //for html reports
   reporterOptions: {
-    reportPageTitle: 'Cypress BDD Report',
+    reportPageTitle: 'Cypress BDD Report ',
     embeddedScreenshots: true,
   },
 
