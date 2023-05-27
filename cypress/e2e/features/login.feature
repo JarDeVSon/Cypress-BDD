@@ -2,7 +2,7 @@ Feature: Login
 
     Feature Description
 
-    Scenario: Login com data table
+    Scenario: Login com data table hashes().forEach((element) => ){...}
         Given the user is on the login screen
         And fill the credentials
             | email                       | password |
@@ -10,6 +10,13 @@ Feature: Login
         When clicks on Login
         Then the success message should be displayed
 
+    Scenario: Login com data table rowsHash() const data = datatable.rowsHash();
+        Given the user is on the login screen
+        And fill the credentials rowsHash
+            | email    | Testecypress1234@bol.com.br |
+            | password | Senha123                    |
+        When clicks on Login
+        Then the success message should be displayed
     Scenario: Login com sucesso
         Given the user is on the login screen
         And fill my credentials

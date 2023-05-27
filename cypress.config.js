@@ -7,14 +7,18 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter', //for html reports
   reporterOptions: {
     reportPageTitle: 'Cypress BDD Report ',
-    embeddedScreenshots: true,
+    quiet: true,
+    charts: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
   },
 
   e2e: {
     specPattern: "cypress/e2e/features/*.feature",
     baseUrl: "http://automationpratice.com.br/",
     setupNodeEvents(on, config) {
-     
+      screenshotOnRunFailure=true;
+      require('cypress-mochawesome-reporter/plugin')(on);
       // implement node event listeners here
       addCucumberPreprocessorPlugin(on, config);
       on(
@@ -23,8 +27,6 @@ module.exports = defineConfig({
           plugins: [createEsbuildPlugin(config)],
         })
       );
-      screenshotOnRunFailure=true;
-      require('cypress-mochawesome-reporter/plugin')(on);
       return config;
     },
   },
