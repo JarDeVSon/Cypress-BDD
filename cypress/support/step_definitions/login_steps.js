@@ -1,11 +1,14 @@
-
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-const login_page = require('../pages/login_page')
+const login_page = require("../pages/login_page");
 
 Given("fill the credentials", (datatable) => {
   datatable.hashes().forEach((element) => {
-    login_page.fillCredentials(element.email,element.password);
+    login_page.fillCredentials(element.email, element.password);
   });
+});
+Given("fill the credentials rowsHash", (datatable) => {
+  let data = datatable.rowsHash();
+  login_page.fillCredentials(data.email, data.password);
 });
 Given("the user is on the login screen", () => {
   login_page.accessLogin();
