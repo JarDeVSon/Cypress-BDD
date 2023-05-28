@@ -5,7 +5,7 @@ class login_page {
     fillPassword: () => cy.get("#password"),
     clicksLogin: () => cy.get("#btnLogin"),
     getSuccessMessage: () => cy.get("#swal2-title"),
-    getErrorMessage: () => cy.get(".invalid_input")
+    getAlertMessage: () => cy.get(".invalid_input")
   }
   
   accessLogin() {
@@ -25,12 +25,13 @@ class login_page {
   clicksLogin() {
     this.elements.clicksLogin().click({ force: true });
   }
-  getSuccessMessage() {
-    this.elements.getSuccessMessage().should("contain", "Login realizado");
+  getMessage(message){
+    this.elements.getAlertMessage().should("have.text",message)
   }
-  getErrorMessage(message) {
-    this.elements.getErrorMessage().should("have.text", message);
+  getSuccessMessage(message) {
+    this.elements.getSuccessMessage().should("have.text", message);
   }
+ 
 }
 
 module.exports = new login_page();

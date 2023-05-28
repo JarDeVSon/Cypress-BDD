@@ -29,10 +29,20 @@ Given("dont fill credentials", () => {
 When("clicks on Login", () => {
   login_page.clicksLogin();
 });
+Then("the success message {string} should be displayed", (message) => {
+  login_page.getSuccessMessage(message);
+});
+Then("the success message should be displayed hashes forEach", (datatable) => {
+  datatable.hashes().forEach((element) => {
+  login_page.getSuccessMessage(element.message);
+  });
+});
 
-Then("the success message should be displayed", () => {
-  login_page.getSuccessMessage();
+Then("the success message should be displayed rowsHash", (datatable) => {
+  const data = datatable.rowsHash();
+  login_page.getSuccessMessage(data.message);
 });
 Then("the alert message {string} should be displayed", (message) => {
-  login_page.getErrorMessage(message);
+  login_page.getMessage(message);
 });
+
