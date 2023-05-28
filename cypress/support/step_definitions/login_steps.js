@@ -10,7 +10,7 @@ Given("the user is on the login screen", () => {
   login_page.accessLogin();
 });
 
-Given("fill the credentials", (datatable) => {
+Given("fill the credentials forEach", (datatable) => {
   datatable.hashes().forEach((element) => {
     login_page.fillCredentials(element.email, element.password);
   });
@@ -41,6 +41,11 @@ Then("the success message should be displayed hashes forEach", (datatable) => {
 Then("the success message should be displayed rowsHash", (datatable) => {
   const data = datatable.rowsHash();
   login_page.getSuccessMessage(data.message);
+});
+Then("the alert message should be displayed hashes forEach", (datatable) => {
+  datatable.hashes().forEach((element) => {
+    login_page.getMessage(element.message);
+  });
 });
 Then("the alert message should be displayed rowsHash", (datatable) => {
   const data = datatable.rowsHash();
