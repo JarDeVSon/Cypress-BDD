@@ -32,7 +32,7 @@ Feature: Login
             | email    | <email>    |
             | password | <password> |
         When clicks on Login
-        Then the alert message should be displayed
+        Then the alert message should be displayed rowsHash
             | message | <message> |
         Examples:
             | id             | email                       | password | message          |

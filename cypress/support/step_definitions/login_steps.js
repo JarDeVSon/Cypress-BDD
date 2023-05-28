@@ -46,7 +46,5 @@ Then("the alert message should be displayed rowsHash", (datatable) => {
   const data = datatable.rowsHash();
   login_page.getMessage(data.message);
 });
-Then("the alert message {string} should be displayed", (message) => {
-  login_page.getMessage(message);
-});
+
 
