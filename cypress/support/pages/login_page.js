@@ -6,23 +6,23 @@ class login_page {
     cy.get(".right_list_fix > :nth-child(1) > a").click();
   }
   fillEmail(email){
-    cy.get(login_selectors.fillEmail).type(email);
+    cy.get(login_selectors.fields.email).type(email);
   }
   fillPassword(password){
-    cy.get(login_selectors.fillPassword).type(password);
+    cy.get(login_selectors.fields.password).type(password);
   }
   fillCredentials(email,password){
-    cy.get(login_selectors.fillEmail).type(email, {force: true});
-    cy.get(login_selectors.fillPassword).type(password,{force: true});
+    cy.get(login_selectors.fields.email).type(email, {force: true});
+    cy.get(login_selectors.fields.password).type(password,{force: true});
   }
   clicksLogin(){
-    cy.get(login_selectors.clicksLogin).click({force: true});
+    cy.get(login_selectors.buttons.btnLogin).click({force: true});
   }
   getMessage(message){
-    cy.get(login_selectors.getAlertMessage).should('have.text', message);
+    cy.get(login_selectors.messages.alert).should('have.text', message);
   }
   getSuccessMessage(message){
-    cy.get(login_selectors.getSuccessMessage).should('have.text', message);
+    cy.get(login_selectors.messages.success).should('have.text', message);
   }
  
 }

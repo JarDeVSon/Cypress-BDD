@@ -1,7 +1,13 @@
 module.exports = {
-    fillEmail: '#user',
-    fillPassword: '#password',
-    clicksLogin: '#btnLogin',
-    getSuccessMessage: '#swal2-title',
-    getAlertMessage: '.invalid_input'
+    fields: {
+        email: '#user',
+        password: '#password'
+    },
+    buttons: {
+        btnLogin: '#btnLogin'
+    },
+    messages: {
+        success: '#swal2-title',
+        alert: '.invalid_input'
+    }
 }
