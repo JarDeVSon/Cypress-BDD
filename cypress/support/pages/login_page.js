@@ -1,35 +1,28 @@
+import login_selectors from "../selectors/login_selectors.cy";
 class login_page {
-
-  elements = {
-    fillEmail: () => cy.get("#user"),
-    fillPassword: () => cy.get("#password"),
-    clicksLogin: () => cy.get("#btnLogin"),
-    getSuccessMessage: () => cy.get("#swal2-title"),
-    getAlertMessage: () => cy.get(".invalid_input")
-  }
   
   accessLogin() {
     cy.visit("/");
     cy.get(".right_list_fix > :nth-child(1) > a").click();
   }
-  fillEmail(email) {
-    this.elements.fillEmail().type(email);
+  fillEmail(email){
+    cy.get(login_selectors.fillEmail).type(email);
   }
-  fillPassword(password) {
-    this.elements.fillPassword().type(password);
+  fillPassword(password){
+    cy.get(login_selectors.fillPassword).type(password);
   }
-  fillCredentials(email, password) {
-    this.elements.fillEmail().type(email, { force: true });
-    this.elements.fillPassword().type(password, { force: true });
+  fillCredentials(email,password){
+    cy.get(login_selectors.fillEmail).type(email, {force: true});
+    cy.get(login_selectors.fillPassword).type(password,{force: true});
   }
-  clicksLogin() {
-    this.elements.clicksLogin().click({ force: true });
+  clicksLogin(){
+    cy.get(login_selectors.clicksLogin).click({force: true});
   }
   getMessage(message){
-    this.elements.getAlertMessage().should("have.text",message)
+    cy.get(login_selectors.getAlertMessage).should('have.text', message);
   }
-  getSuccessMessage(message) {
-    this.elements.getSuccessMessage().should("have.text", message);
+  getSuccessMessage(message){
+    cy.get(login_selectors.getSuccessMessage).should('have.text', message);
   }
  
 }

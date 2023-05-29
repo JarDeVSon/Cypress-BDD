@@ -1,24 +1,27 @@
 const { defineConfig } = require("cypress");
-const createBundler = require("@bahmutov/cypress-esbuild-preprocessor")
-const { addCucumberPreprocessorPlugin } = require("@badeball/cypress-cucumber-preprocessor")
-const { createEsbuildPlugin } = require("@badeball/cypress-cucumber-preprocessor/esbuild")
+const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+const {
+  addCucumberPreprocessorPlugin,
+} = require("@badeball/cypress-cucumber-preprocessor");
+const {
+  createEsbuildPlugin,
+} = require("@badeball/cypress-cucumber-preprocessor/esbuild");
 
 module.exports = defineConfig({
-  reporter: 'cypress-mochawesome-reporter', //for html reports
-  reporterOptions: {
-    reportPageTitle: 'Cypress BDD Report ',
-    quiet: true,
-    charts: true,
-    inlineAssets: true,
-    saveAllAttempts: false,
-  },
-
   e2e: {
+    reporter: "cypress-mochawesome-reporter", //for html reports
+    reporterOptions: {
+      reportPageTitle: "Cypress BDD Report ",
+      quiet: true,
+      charts: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
+    },
     specPattern: "cypress/e2e/features/*.feature",
     baseUrl: "http://automationpratice.com.br/",
     setupNodeEvents(on, config) {
-      screenshotOnRunFailure=true;
-      require('cypress-mochawesome-reporter/plugin')(on);
+      screenshotOnRunFailure = true;
+      require("cypress-mochawesome-reporter/plugin")(on);
       // implement node event listeners here
       addCucumberPreprocessorPlugin(on, config);
       on(

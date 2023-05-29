@@ -23,9 +23,7 @@ Given("fill the credentials rowsHash", (datatable) => {
 Given("fill my credentials", () => {
   login_page.fillCredentials(randomEmail, randomPassword);
 });
-Given("dont fill credentials", () => {
-  login_page.fillCredentials("Testecypress1234@bol.com.br", "1212");
-});
+
 When("clicks on Login", () => {
   login_page.clicksLogin();
 });
