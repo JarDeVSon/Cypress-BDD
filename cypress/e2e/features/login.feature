@@ -23,7 +23,7 @@ Feature: Login
             | email    | Testecypress1234@bol.com.br |
             | password | Senha123                    |
         When clicks on Login
-        Then the success message should be displayed rowsHash
+        Then the success login message should be displayed rowsHash
             | message | Login realizado |
 
 
