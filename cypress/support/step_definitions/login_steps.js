@@ -1,5 +1,5 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-const login_page = require("../pages/login_page");
+import login_page from "../pages/login_page";
 import { faker } from '@faker-js/faker';
 
 
@@ -27,7 +27,7 @@ Given("fill my credentials", () => {
 When("clicks on Login", () => {
   login_page.clicksLogin();
 });
-Then("the success message {string} should be displayed", (message) => {
+Then("the success login message {string} should be displayed", (message) => {
   login_page.getSuccessMessage(message);
 });
 Then("the success message should be displayed hashes forEach", (datatable) => {
