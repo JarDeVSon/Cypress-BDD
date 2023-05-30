@@ -1,4 +1,4 @@
-import login_map from "../selectors/login_selectors.cy";
+import login_map from "../maps/login_map.cy";
 
 export default {
  
