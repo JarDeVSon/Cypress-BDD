@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 
 
 const randomEmail = faker.internet.email(); 
-const randomPassword = faker.internet.password(); 
+const randomPassword = faker.internet.password();
 
 Given("the user is on the login screen", () => {
   login_page.accessLogin();
@@ -42,12 +42,12 @@ Then("the success message should be displayed rowsHash", (datatable) => {
 });
 Then("the alert message should be displayed hashes forEach", (datatable) => {
   datatable.hashes().forEach((element) => {
-    login_page.getMessage(element.message);
+    login_page.getMessageAlert(element.message);
   });
 });
 Then("the alert message should be displayed rowsHash", (datatable) => {
   const data = datatable.rowsHash();
-  login_page.getMessage(data.message);
+  login_page.getMessageAlert(data.message);
 });
 
 

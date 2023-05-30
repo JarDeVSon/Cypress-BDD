@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run --browser chrome --config baseUrl=http://automationpratice.com.br/"
+    "cy:run:dev": "npx cypress run --browser chrome --config baseUrl=http://automationpratice.com.br/",
+    "cy:run:hom": "npx cypress run --browser chrome --config baseUrl=http://automationpratice.com.br/",
+    "cy:open": "npx cypress open"
   },
   "keywords": [],
   "author": "",
