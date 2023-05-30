@@ -18,7 +18,7 @@ class login_page {
   clicksLogin(){
     cy.get(login_selectors.buttons.btnLogin).click({force: true});
   }
-  getMessage(message){
+  getMessageAlert(message){
     cy.get(login_selectors.messages.alert).should('have.text', message);
   }
   getSuccessMessage(message){

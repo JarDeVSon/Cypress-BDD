@@ -9,14 +9,6 @@ const {
 
 module.exports = defineConfig({
   e2e: {
-    reporter: "cypress-mochawesome-reporter", //for html reports
-    reporterOptions: {
-      reportPageTitle: "Cypress BDD Report ",
-      quiet: true,
-      charts: true,
-      inlineAssets: true,
-      saveAllAttempts: false,
-    },
     specPattern: "cypress/e2e/features/*.feature",
     baseUrl: "http://automationpratice.com.br/",
     setupNodeEvents(on, config) {
@@ -31,6 +23,14 @@ module.exports = defineConfig({
         })
       );
       return config;
+    },
+    reporter: "cypress-mochawesome-reporter", //for html reports
+    reporterOptions: {
+      reportPageTitle: "Cypress BDD Report ",
+      quiet: true,
+      charts: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
     },
   },
 });
