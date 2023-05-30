@@ -7,7 +7,7 @@ Feature: Login
     Scenario: Login com sucesso
         And fill my credentials
         When clicks on Login
-        Then the success message "Login realizado" should be displayed
+        Then the success login message "Login realizado" should be displayed
 
     Scenario: Login com data table hashes().forEach((element) => ){...}
         And fill the credentials forEach
@@ -23,7 +23,7 @@ Feature: Login
             | email    | Testecypress1234@bol.com.br |
             | password | Senha123                    |
         When clicks on Login
-        Then the success login message should be displayed rowsHash
+        Then the success message should be displayed rowsHash
             | message | Login realizado |
 
 
