@@ -35,9 +35,12 @@ Feature: Login
         Then the alert message should be displayed rowsHash
             | message | <message> |
         Examples:
-            | id             | email                       | password | message          |
-            | email invalido | @bol.com.br                 | Senha123 | E-mail inválido. |
-            | senha invalida | Testecypress1234@bol.com.br | 123      | Senha inválida.  |
+            | id             | email                       | password    | message          |
+            | email invalido | @bol.com.br                 | Senha123    | E-mail inválido. |
+            | senha invalida | Testecypress1234@bol.com.br | 123         | Senha inválida.  |
+            | tudo vazio     | {backspace}                 | {backspace} | E-mail inválido. |
+
+
 
 
     Scenario Outline: Tentativa de Login usando forEach com <id>
@@ -49,9 +52,11 @@ Feature: Login
             | message   |
             | <message> |
         Examples:
-            | id             | email                       | password | message          |
-            | email invalido | @bol.com.br                 | Senha123 | E-mail inválido. |
-            | senha invalida | Testecypress1234@bol.com.br | 123      | Senha inválida.  |
+            | id             | email                       | password    | message          |
+            | email invalido | @bol.com.br                 | Senha123    | E-mail inválido. |
+            | senha invalida | Testecypress1234@bol.com.br | 123         | Senha inválida.  |
+            | tudo vazio     | {backspace}                 | {backspace} | E-mail inválido. |
+
 
 
 

@@ -14,7 +14,8 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       screenshotOnRunFailure = true;
       require("cypress-mochawesome-reporter/plugin")(on);
-      // implement node event listeners here
+
+       // Isso é necessário para que o pré-processador possa gerar relatórios JSON após cada execução e muito mais,
       addCucumberPreprocessorPlugin(on, config);
       on(
         "file:preprocessor",
@@ -22,15 +23,15 @@ module.exports = defineConfig({
           plugins: [createEsbuildPlugin(config)],
         })
       );
+        //Certifique-se de retornar o objeto de configuração, pois ele pode ter sido modificado pelo plug-in.
       return config;
     },
     reporter: "cypress-mochawesome-reporter", //for html reports
     reporterOptions: {
       reportPageTitle: "Cypress BDD Report ",
+      embeddedScreenshots: true,
+      screenshotOnRunFailure: true,
       quiet: true,
-      charts: true,
-      inlineAssets: true,
-      saveAllAttempts: false,
     },
   },
 });
